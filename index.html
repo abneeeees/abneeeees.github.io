@@ -1,19 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>abneeeees</title>
-    <meta name="description" content="FOSS | LINUX | PROGREAMMING | CYBERSECURITY | DIGITAL ARTIST.">
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>abneeeees</title>
+  <meta name="description" content="Programmer, Digital Artist, Linux User and open source contributor." />
+  <link rel="canonical" href="https://abneeeees.com/" />
+  <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://abneeeees.com/" />
+  <meta property="og:title" content="abneeeees | Avneesh Kumar" />
+  <meta property="og:description" content="Programmer, Digital Artist, Linux User and open source contributor." />
+  <meta property="og:site_name" content="abneeeees" />
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "url": "https://abneeeees.com/",
+    "name": "Avneesh Kumar",
+    "alternateName": "abneeeees",
+    "jobTitle": "Developer & Open Source Contributor",
+    "sameAs": [
+      "https://github.com/abneeeees",
+      "https://t.me/abneeeees",
+      "https://www.instagram.com/abneeeees",
+      "https://twitter.com/abneeeees",
+      "https://www.reddit.com/user/abneeeees",
+      "https://www.linkedin.com/in/abneeeees/"
+    ],
+    "knowsAbout": ["Linux", "FOSS", "Computer Science", "Software Development", "Digital Art"]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <canvas></canvas>
 </head>
-
 <body>
-  <!-- Navbar loads here -->
-  <div id="navbar"></div>
 
-  <div class="main-background"></div>
+  <main>
 
-  <script src="/components/navbar/navbar.js"></script>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <h1 class="hero-title">
+          Namaste, I'm Avneesh aka abneeeees
+        </h1>
+      </div>
+      
+      <p class="hero-sub">
+        I'm a 2nd year computer science student and a digital artist from Delhi/NCR India <br>
+        I started making artworks back in 2020 and still continue that habit of mine <br>
+        I got in programming for nothing, but I started to like it, especially Azad Software philosophy <br>
+        Fuck those who had a Internet access from a very early age 
+      </p>
+
+      <ul>
+        <a href="https://github.com/abneeeees">Github</a>
+        <a href="https://x.com/abneeeees">Twitter</a>
+        <a href="https://instagram.com/abneeeees">Instagram</a>
+        <a href="https://t.me/abneeeees">Telegram</a>
+        <a href="mailto:abneeeees@proton.me">Email</a>
+      </ul>
+
+      <a href="#projects" class="cta-btn">see my work </a>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="section-inner">
+        <h2 class="section-label">about</h2>
+        <div class="about-grid">
+          <p class="about-text">
+            2nd year Computer Science student from <strong>Dilli</strong>. I spend most of my time
+            coding, breaking things, and then coding some more. Currently diving deep into
+            <strong>Socket Programming</strong> and <strong>CyberSecurity</strong>.
+          </p>
+          <p class="about-text">
+            I like building tools that are actually useful, poking around open-source projects,
+            and making digital art when I need a break from terminals and stack traces.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <div class="section-inner">
+        <h2 class="section-label">projects</h2>
+
+        <div class="projects-group">
+          <h3 class="group-label">// currently working on</h3>
+          <div class="card-grid">
+
+            <a href="https://github.com/abneeeees/Magnetio" class="project-card active-project" target="_blank" rel="noopener">
+              <h3 class="card-title">Magnetio</h3>
+              <p class="card-desc">Play, download &amp; search medium for magnet links.</p>
+              <span class="card-lang">c</span>
+            </a>
+
+            <a href="https://github.com/abneeeees/ablist" class="project-card active-project" target="_blank" rel="noopener">
+              <h3 class="card-title">ablist</h3>
+              <p class="card-desc">Bruteforcing tool — generates custom wordlists from a given set of words.</p>
+              <span class="card-lang">Python</span>
+            </a>
+
+          </div>
+        </div>
+
+        <div class="projects-group">
+          <h3 class="group-label">// old / scrap</h3>
+          <div class="card-grid">
+
+            <a href="https://github.com/abneeeees/SKULL-SHELL" class="project-card" target="_blank" rel="noopener">
+              <h3 class="card-title">Skull Shell</h3>
+              <p class="card-desc">A lightweight shell implementation written in C.</p>
+              <span class="card-lang">C</span>
+            </a>
+
+            <a href="https://github.com/abneeeees/Github-Analyzer" class="project-card" target="_blank" rel="noopener">
+              <h3 class="card-title">Github Analyzer</h3>
+              <p class="card-desc">ML-based GitHub repo analyzer I built while learning machine learning.</p>
+              <span class="card-lang">Python</span>
+            </a>
+
+            <a href="https://github.com/abneeeees/FUshut_down" class="project-card" target="_blank" rel="noopener">
+              <h3 class="card-title">FUshut_down</h3>
+              <p class="card-desc">A tool that does exactly what the name implies.</p>
+              <span class="card-lang">Shell</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Art -->
+    <section class="section" id="art">
+        <h2 class="section-title">Arts</h2>
+
+        <ul>
+          <img src="" alt="">
+          <img src="" alt="">
+          <img src="" alt="">
+        </ul>
+        <p class="placeholder-text">Coming soon — check my <a href="https://www.instagram.com/abneeeees" target="_blank" rel="noopener">Instagram</a> for now.</p>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+        <h2 class="section-title">Say hi</h2>
+        <p class="contact-intro">I'm open to collabs, interesting projects, and (yes) paid work.</p>
+        <a href="mailto:abneeeees@proton.me" class="email-link">Email</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-copy">© 2025 Avneesh Kumar — built with stubbornness</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script src="js/background.js"></script>
 </body>
 </html>
