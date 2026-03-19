@@ -24,11 +24,11 @@ generate();
 resize();
 step();
 
-window.onresize = resize;
-canvas.onmousemove = onMouseMove;
-canvas.ontouchmove = onTouchMove;
-canvas.ontouchend = onMouseLeave;
-document.onmouseleave = onMouseLeave;
+window.addEventListener('resize', resize);
+window.addEventListener('mousemove', onMouseMove);
+window.addEventListener('touchmove', onTouchMove, { passive: false });
+window.addEventListener('touchend', onMouseLeave);
+document.addEventListener('mouseleave', onMouseLeave);
 
 function generate() {
   for (let i = 0; i < STAR_COUNT; i++) {
