@@ -15,7 +15,6 @@ html {
 }
 
 body {
-  margin: 0;
   width: 100%;
   min-height: 100vh;
   background-color: var(--bg);
@@ -40,7 +39,7 @@ main,
 
 /* hero */
 .hero {
-  min-height: 90vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,21 +54,17 @@ main,
 }
 
 .hero-title {
-  margin: 0px 10px 25px;  /*uppar  centre  niche*/
   color: var(--fg);
-
-  font-size: clamp(1.4rem, 3.2rem, 4rem);
-  white-space: nowrap;
-
+  font-size: clamp(1.4rem, 3.0rem, 4rem);
+  text-align: center;
   line-height: 1.08;
   font-weight: 700;
 
-  text-align: center;
-  align-items: center;
 }
 
 .hero-sub {
-  margin: 0 auto 28px;
+  margin: 0 5 28px;
+  opacity: 0.8;
   max-width: 680px;
   font-size: 1.05rem;
   line-height: 1.9;
@@ -103,9 +98,9 @@ main,
 .cta-btn {
   display: inline-block;
   margin: 0 auto;
-  padding: 12px 20px;
-  border: 1px solid var(--fg);
-  border-radius: 999px;
+  padding: 1px 10px;
+  border: 0.1px solid var(--fg);
+  border-radius: 10px;
   text-decoration: none;
   color: var(--bg);
   background: var(--fg);
@@ -146,14 +141,23 @@ main,
 
 .about-grid {
   display: flex;
+  padding: 0 0 20px;
   grid-template-columns: 1fr 1fr;
 }
 
 .about-text {
+  flex: 1;
+  max-width: 500;
   margin: 0 auto;
   font-size: 1.02rem;
   line-height: 1.9;
   color: var(--muted);
+  text-overflow: clip;
+}
+
+.about-grid a {
+  color: rgb(3, 235, 3);;
+  text-decoration: underline;
 }
 
 .about-text strong {
@@ -222,6 +226,10 @@ main,
 
 .active-project {
   border-color: rgba(255, 255, 255, 0.3);
+}
+
+.art-text {
+  text-align: center;
 }
 
 /*contact */
