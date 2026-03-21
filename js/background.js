@@ -26,7 +26,7 @@ step();
 
 window.addEventListener('resize', resize);
 window.addEventListener('mousemove', onMouseMove);
-window.addEventListener('touchmove', onTouchMove, { passive: false });
+window.addEventListener('touchmove', onTouchMove, { passive: true });
 window.addEventListener('touchend', onMouseLeave);
 document.addEventListener('mouseleave', onMouseLeave);
 
@@ -177,7 +177,6 @@ function onMouseMove(event) {
 function onTouchMove(event) {
   touchInput = true;
   movePointer(event.touches[0].clientX, event.touches[0].clientY);
-  event.preventDefault();
 }
 
 function onMouseLeave() {
