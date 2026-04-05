@@ -137,3 +137,19 @@ if (upiLink) {
     }
   });
 }
+
+// rotate image and music
+const img = document.querySelector(".hero-pfp img");
+const audio = document.getElementById("bg-music");
+
+let isPlaying = false;
+
+img.addEventListener("mouseenter", () => {
+  if (!isPlaying) {
+    audio.play();
+    isPlaying = true;
+  } else {
+    audio.pause();
+    isPlaying = false;
+  }
+});

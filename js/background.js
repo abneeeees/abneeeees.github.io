@@ -1,20 +1,20 @@
 const STAR_COLOR = '#fff';
 const STAR_SIZE = 3;
-const STAR_MIN_SCALE = 0.2;
+const STAR_MIN_SCALE = 0.1;
 const OVERFLOW_THRESHOLD = 50;
 const STAR_COUNT = (window.innerWidth + window.innerHeight) / 8;
 
 const canvas = document.querySelector('canvas'),
-      context = canvas.getContext('2d');
+  context = canvas.getContext('2d');
 
 let scale = 1,
-    width,
-    height;
+  width,
+  height;
 
 let stars = [];
 
 let pointerX,
-    pointerY;
+  pointerY;
 
 let velocity = { x: 0, y: 0, tx: 0, ty: 0, z: 0.0002 }; // slower depth motion
 
@@ -49,7 +49,7 @@ function recycleStar(star) {
   let direction = 'z';
 
   let vx = Math.abs(velocity.x),
-      vy = Math.abs(velocity.y);
+    vy = Math.abs(velocity.y);
 
   if (vx > 1 || vy > 1) {
     let axis;
@@ -146,7 +146,7 @@ function render() {
     context.moveTo(star.x, star.y);
 
     let tailX = velocity.x * 2,
-        tailY = velocity.y * 2;
+      tailY = velocity.y * 2;
 
     if (Math.abs(tailX) < 0.1) tailX = 0.5;
     if (Math.abs(tailY) < 0.1) tailY = 0.5;
@@ -159,7 +159,7 @@ function render() {
 function movePointer(x, y) {
   if (typeof pointerX === 'number' && typeof pointerY === 'number') {
     let ox = x - pointerX,
-        oy = y - pointerY;
+      oy = y - pointerY;
 
     velocity.tx = velocity.tx + (ox / 30 * scale) * (touchInput ? 1 : -1); // less sensitivity
     velocity.ty = velocity.ty + (oy / 30 * scale) * (touchInput ? 1 : -1);
