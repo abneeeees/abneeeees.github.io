@@ -142,6 +142,10 @@ if (upiLink) {
 const img = document.querySelector(".hero-pfp img");
 const audio = document.getElementById("bg-music");
 
+audio.onloadstart = () => {
+  audio.currentTime = 0;
+};
+
 let isPlaying = false;
 
 img.addEventListener("mouseenter", () => {

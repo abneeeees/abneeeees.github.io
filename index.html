@@ -36,6 +36,7 @@
     "knowsAbout": ["Linux", "FOSS", "Computer Science", "Software Development", "Digital Art"]
   }
   </script>
+    <link rel="preload" href="sound.ogg" as="audio" type="audio/ogg">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -59,7 +60,10 @@
                 <div class="hero-pfp">
                     <img src="assets/yeezus.webp" alt="Profile Picture">
                 </div>
-                <audio id="bg-music" src="assets/kanye.mp3"></audio>
+                
+                <audio id="bg-music" preload="auto">
+                  <source src="assets/songs/KanYe.ogg" type="audio/ogg">
+                </audio>
 
                 <h1 class="hero-title">
                     Namaste, I'm Avneesh aka abneeeees

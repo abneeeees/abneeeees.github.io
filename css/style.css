@@ -165,7 +165,6 @@ main,
 .cta-btn:hover {
     opacity: 0.85;
     transform: translateY(-2px);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.12);
 }
 
 /* shared section layout */
