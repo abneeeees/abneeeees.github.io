@@ -1,4 +1,3 @@
-const STAR_COLOR = '#fff';
 const STAR_SIZE = 3;
 const STAR_MIN_SCALE = 0.1;
 const OVERFLOW_THRESHOLD = 50;
@@ -19,16 +18,28 @@ let pointerX,
 let velocity = { x: 0, y: 0, tx: 0, ty: 0, z: 0.0002 }; // slower depth motion
 
 let touchInput = false;
+let starColor = getStarColor();
 
 generate();
 resize();
 step();
 
 window.addEventListener('resize', resize);
+window.addEventListener('themechange', refreshTheme);
 window.addEventListener('mousemove', onMouseMove);
 window.addEventListener('touchmove', onTouchMove, { passive: true });
 window.addEventListener('touchend', onMouseLeave);
 document.addEventListener('mouseleave', onMouseLeave);
+
+function getStarColor() {
+  return getComputedStyle(document.documentElement)
+    .getPropertyValue('--canvas-stroke')
+    .trim() || 'rgba(255, 255, 255, 1)';
+}
+
+function refreshTheme() {
+  starColor = getStarColor();
+}
 
 function generate() {
   for (let i = 0; i < STAR_COUNT; i++) {
@@ -140,7 +151,7 @@ function render() {
     context.lineCap = 'round';
     context.lineWidth = STAR_SIZE * star.z * scale;
     context.globalAlpha = 0.15 + 0.2 * Math.random(); // lower opacity
-    context.strokeStyle = STAR_COLOR;
+    context.strokeStyle = starColor;
 
     context.beginPath();
     context.moveTo(star.x, star.y);

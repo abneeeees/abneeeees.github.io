@@ -1,5 +1,21 @@
 const artCarousel = document.querySelector(".art-carousel");
 
+// light-dark mode
+const themeToggle = document.getElementById("dark-mode-toggle");
+const root = document.documentElement;
+const applyTheme = (theme) => {
+  root.dataset.theme = theme;
+  window.dispatchEvent(new CustomEvent("themechange", { detail: { theme } }));
+};
+
+if (themeToggle) {
+  applyTheme(themeToggle.checked ? "dark" : "light");
+
+  themeToggle.addEventListener("change", () => {
+    applyTheme(themeToggle.checked ? "dark" : "light");
+  });
+}
+
 if (artCarousel) {
   const artRow = artCarousel.querySelector(".art-row");
   const leftButton = artCarousel.querySelector(".art-nav-left");
@@ -142,18 +158,22 @@ if (upiLink) {
 const img = document.querySelector(".hero-pfp img");
 const audio = document.getElementById("bg-music");
 
-audio.onloadstart = () => {
-  audio.currentTime = 0;
-};
+if (audio) {
+  audio.onloadstart = () => {
+    audio.currentTime = 0;
+  };
+}
 
-let isPlaying = false;
+if (img && audio) {
+  let isPlaying = false;
 
-img.addEventListener("mouseenter", () => {
-  if (!isPlaying) {
-    audio.play();
-    isPlaying = true;
-  } else {
-    audio.pause();
-    isPlaying = false;
-  }
-});
+  img.addEventListener("mouseenter", () => {
+    if (!isPlaying) {
+      audio.play();
+      isPlaying = true;
+    } else {
+      audio.pause();
+      isPlaying = false;
+    }
+  });
+}

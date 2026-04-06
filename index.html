@@ -53,6 +53,14 @@
 
     <main>
 
+        <!--light-dark mode-->
+        <div class="light-dark-mode">
+            <input type="checkbox" id="dark-mode-toggle" aria-label="Toggle dark mode" checked />
+            <label for="dark-mode-toggle">
+                <i class="fa-solid fa-moon fa-xl"></i>
+            </label>
+        </div>
+
         <!-- Hero -->
         <section class="hero" id="home">
             <div class="hero-box">
@@ -60,9 +68,9 @@
                 <div class="hero-pfp">
                     <img src="assets/yeezus.webp" alt="Profile Picture">
                 </div>
-                
+
                 <audio id="bg-music" preload="auto">
-                  <source src="assets/songs/KanYe.ogg" type="audio/ogg">
+                    <source src="assets/songs/KanYe.ogg" type="audio/ogg">
                 </audio>
 
                 <h1 class="hero-title">
@@ -122,7 +130,7 @@
                         I like building stuff which i've no idea if it holds any real world meaning cuz why not, working
                         around open-source projects,
                         and making digital art when I need a break from terminals and stack traces. I've been making <a
-                            href="#art" style="text-decoration: underline;"> <strong style="color: rgb(3, 235, 3);">
+                            href="#art"> <strong>
                                 digital artworks</strong></a>
                         since last 5 years
                     </p>
@@ -330,12 +338,12 @@
         <p class="footer-copy">© 2026 Made with
             <span style="color: red; font-size:larger;"> ♥ </span>
             by
-            <a href="https://github.com/abneeeees" style="color: white; text-decoration: none;">abneeeees</a>
+            <a href="https://github.com/abneeeees" class="footer-link">abneeeees</a>
         </p>
         <p class="footer-upi">
             Buy me a coffee at
             <a href="upi://pay?pa=abneeeees@upi" id="upi-link" data-upi-id="abneeeees@upi"
-                data-upi-link="upi://pay?pa=abneeeees@upi" style="color:white; text-decoration: none;">abneeeees@upi</a>
+                data-upi-link="upi://pay?pa=abneeeees@upi" class="footer-link">abneeeees@upi</a>
             <span class="upi-status" id="upi-status" aria-live="polite"></span>
         </p>
     </footer>
