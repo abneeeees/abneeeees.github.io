@@ -25,9 +25,9 @@
     --fg: #14110f;
     --muted: rgba(20, 17, 15, 0.74);
     --soft: rgba(20, 17, 15, 0.08);
-    --panel: rgba(255, 255, 255, 0.56);
+    --panel: rgba(194, 194, 194, 0.247);
     --panel-strong: rgba(255, 255, 255, 0.74);
-    --border: rgba(20, 17, 15, 0.14);
+    --border: rgba(0, 0, 0, 0.342);
     --border-strong: rgba(20, 17, 15, 0.28);
     --accent: #0d9a37;
     --footer-muted: #5e5a56;

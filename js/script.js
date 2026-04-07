@@ -160,7 +160,7 @@ const audio = document.getElementById("bg-music");
 
 if (audio) {
   audio.onloadstart = () => {
-    audio.currentTime = 0;
+    audio.currentTime = 0;1
   };
 }
 
