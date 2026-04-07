@@ -74,10 +74,13 @@ body {
   /* text-shadow: 0 0 6px rgba(0, 0, 0, 0.7) */
 }
 
+#dark-mode-toggle + label i {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
 #dark-mode-toggle + label i:hover {
-    transition: 0.3s;
-    opacity: 0.85;
-    transform: rotate(-30deg) scale(1.1);
+  opacity: 0.85;
+  transform: rotate(-30deg) scale(1.2);
 }
 
 canvas {
