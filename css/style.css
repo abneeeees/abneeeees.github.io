@@ -58,7 +58,8 @@ body {
 
 #dark-mode-toggle + label {
     z-index: 1;
-    size: 100px;
+    width: 100px;
+    height: 100px;
     position: absolute ;
     right: 40px;
     top: 30px;
@@ -142,12 +143,22 @@ main,
     color: var(--muted);
 }
 
-.hero-links,
-.contact-links {
+.hero-links {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 18px;
+    margin: 0 0 30px;
+    padding-top: 20px;
+}
+
+/* FIX: flex-wrap so icons don't overflow the card on mobile; bigger gap for breathing room */
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
     margin: 0 0 30px;
     padding-top: 20px;
 }
