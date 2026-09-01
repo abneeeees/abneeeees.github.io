@@ -161,15 +161,8 @@ const audio = document.getElementById("bg-music");
 if (audio && img) {
   audio.preload = "auto";
 
-  let isPlaying = false;
-
   img.addEventListener("mouseenter", () => {
-    if (!isPlaying) {
-      audio.play();
-      isPlaying = true;
-    } else {
-      audio.pause();
-      isPlaying = false;
-    }
+    audio.currentTime = 0;
+    audio.play();
   });
 }
