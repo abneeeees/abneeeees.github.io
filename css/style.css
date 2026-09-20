@@ -126,15 +126,13 @@ main,
 .hero-pfp img {
     max-width: 20%;
     border-radius: 50%;
-    outline: 3px solid var(--accent);
+    outline: white;
     outline-offset: 2px;
-    box-shadow: 0 0 0 6px rgba(3, 235, 3, 0.15), 0 0 30px rgba(3, 235, 3, 0.35);
     transition: transform 0.6s ease, box-shadow 0.6s ease;
 }
 
 .hero-pfp img:hover {
     transform: rotate(360deg);
-    box-shadow: 0 0 0 8px rgba(3, 235, 3, 0.25), 0 0 45px rgba(3, 235, 3, 0.55);
 }
 
 @keyframes omnitrix-pulse {
