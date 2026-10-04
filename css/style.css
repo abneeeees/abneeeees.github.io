@@ -196,7 +196,7 @@ main,
 .hero-links a:hover,
 .contact-links a:hover {
     opacity: 0.85;
-    transform: translateY(-2px);
+    transform: translateY(-10px);
 }
 
 .cta-btn {
