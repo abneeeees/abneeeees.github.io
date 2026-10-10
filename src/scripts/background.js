@@ -12,12 +12,8 @@ let scale = 1,
 
 let stars = [];
 
-let pointerX,
-  pointerY;
+let velocity = { z: 0.0002 }; // slower depth motion
 
-let velocity = { x: 0, y: 0, tx: 0, ty: 0, z: 0.0002 }; // slower depth motion
-
-let touchInput = false;
 let starColor = getStarColor();
 
 generate();
@@ -26,10 +22,6 @@ step();
 
 window.addEventListener('resize', resize);
 window.addEventListener('themechange', refreshTheme);
-window.addEventListener('mousemove', onMouseMove);
-window.addEventListener('touchmove', onTouchMove, { passive: true });
-window.addEventListener('touchend', onMouseLeave);
-document.addEventListener('mouseleave', onMouseLeave);
 
 function getStarColor() {
   return getComputedStyle(document.documentElement)
@@ -57,46 +49,9 @@ function placeStar(star) {
 }
 
 function recycleStar(star) {
-  let direction = 'z';
-
-  let vx = Math.abs(velocity.x),
-    vy = Math.abs(velocity.y);
-
-  if (vx > 1 || vy > 1) {
-    let axis;
-
-    if (vx > vy) {
-      axis = Math.random() < vx / (vx + vy) ? 'h' : 'v';
-    } else {
-      axis = Math.random() < vy / (vx + vy) ? 'v' : 'h';
-    }
-
-    if (axis === 'h') {
-      direction = velocity.x > 0 ? 'l' : 'r';
-    } else {
-      direction = velocity.y > 0 ? 't' : 'b';
-    }
-  }
-
-  star.z = STAR_MIN_SCALE + Math.random() * (1 - STAR_MIN_SCALE);
-
-  if (direction === 'z') {
-    star.z = 0.1;
-    star.x = Math.random() * width;
-    star.y = Math.random() * height;
-  } else if (direction === 'l') {
-    star.x = -OVERFLOW_THRESHOLD;
-    star.y = height * Math.random();
-  } else if (direction === 'r') {
-    star.x = width + OVERFLOW_THRESHOLD;
-    star.y = height * Math.random();
-  } else if (direction === 't') {
-    star.x = width * Math.random();
-    star.y = -OVERFLOW_THRESHOLD;
-  } else if (direction === 'b') {
-    star.x = width * Math.random();
-    star.y = height + OVERFLOW_THRESHOLD;
-  }
+  star.z = STAR_MIN_SCALE;
+  star.x = Math.random() * width;
+  star.y = Math.random() * height;
 }
 
 function resize() {
@@ -121,16 +76,7 @@ function step() {
 }
 
 function update() {
-  velocity.tx *= 0.94;
-  velocity.ty *= 0.94;
-
-  velocity.x += (velocity.tx - velocity.x) * 0.05; // slower easing
-  velocity.y += (velocity.ty - velocity.y) * 0.05;
-
   stars.forEach((star) => {
-    star.x += velocity.x * star.z;
-    star.y += velocity.y * star.z;
-
     star.x += (star.x - width / 2) * velocity.z * star.z;
     star.y += (star.y - height / 2) * velocity.z * star.z;
     star.z += velocity.z;
@@ -155,42 +101,7 @@ function render() {
 
     context.beginPath();
     context.moveTo(star.x, star.y);
-
-    let tailX = velocity.x * 2,
-      tailY = velocity.y * 2;
-
-    if (Math.abs(tailX) < 0.1) tailX = 0.5;
-    if (Math.abs(tailY) < 0.1) tailY = 0.5;
-
-    context.lineTo(star.x + tailX, star.y + tailY);
+    context.lineTo(star.x + 0.5, star.y + 0.5);
     context.stroke();
   });
-}
-
-function movePointer(x, y) {
-  if (typeof pointerX === 'number' && typeof pointerY === 'number') {
-    let ox = x - pointerX,
-      oy = y - pointerY;
-
-    velocity.tx = velocity.tx + (ox / 30 * scale) * (touchInput ? 1 : -1); // less sensitivity
-    velocity.ty = velocity.ty + (oy / 30 * scale) * (touchInput ? 1 : -1);
-  }
-
-  pointerX = x;
-  pointerY = y;
-}
-
-function onMouseMove(event) {
-  touchInput = false;
-  movePointer(event.clientX, event.clientY);
-}
-
-function onTouchMove(event) {
-  touchInput = true;
-  movePointer(event.touches[0].clientX, event.touches[0].clientY);
-}
-
-function onMouseLeave() {
-  pointerX = null;
-  pointerY = null;
 }
