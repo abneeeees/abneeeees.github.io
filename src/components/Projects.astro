@@ -1,5 +1,8 @@
 ---
 import { projects } from "../data/projects";
+
+const VISIBLE_COUNT = 4;
+const hidden = projects.slice(VISIBLE_COUNT);
 ---
 
 <section class="section" id="projects">
@@ -9,10 +12,10 @@ import { projects } from "../data/projects";
     <div class="projects-group">
       <div class="card-grid">
         {
-          projects.map((project) => (
+          projects.map((project, index) => (
             <a
               href={project.url}
-              class="project-card"
+              class={`project-card${index >= VISIBLE_COUNT ? " project-card-extra" : ""}`}
               target="_blank"
               rel="noopener"
             >
@@ -25,6 +28,78 @@ import { projects } from "../data/projects";
           ))
         }
       </div>
+
+      {
+        hidden.length > 0 && (
+          <button
+            class="projects-toggle"
+            id="projects-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="projects-extras"
+          >
+            <span class="projects-toggle-label">View more</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+        )
+      }
     </div>
   </div>
 </section>
+
+<style>
+  .projects-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 24px auto 0;
+    padding: 6px 10px;
+    border: 0;
+    background: transparent;
+    color: var(--fg);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition:
+      opacity 0.18s ease,
+      transform 0.18s ease;
+  }
+
+  .projects-toggle:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+  }
+
+  .projects-toggle:active {
+    transform: translateY(0);
+  }
+
+  .projects-toggle i {
+    font-size: 0.85rem;
+  }
+
+  .projects-group .project-card-extra {
+    display: none;
+  }
+
+  .projects-group.expanded .project-card-extra {
+    display: block;
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById("projects-toggle");
+  const group = toggle?.closest(".projects-group");
+
+  toggle?.addEventListener("click", () => {
+    const isExpanded = group?.classList.toggle("expanded") ?? false;
+    const label = toggle.querySelector(".projects-toggle-label");
+    const icon = toggle.querySelector("i");
+
+    if (label) label.textContent = isExpanded ? "View less" : "View more";
+    if (icon) icon.className = isExpanded ? "fa-solid fa-chevron-up" : "fa-solid fa-chevron-down";
+    toggle.setAttribute("aria-expanded", String(isExpanded));
+    toggle.setAttribute("aria-label", isExpanded ? "Show fewer projects" : "Show all projects");
+  });
+</script>
