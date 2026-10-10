@@ -188,15 +188,13 @@ main,
     color: var(--fg);
     text-decoration: none;
     opacity: 1;
-    transition:
-        transform 0.18s ease,
-        opacity 0.18s ease;
+    transform-origin: bottom center;
+    transition: opacity 0.18s ease;
 }
 
 .hero-links a:hover,
 .contact-links a:hover {
     opacity: 0.85;
-    transform: translateY(-10px);
 }
 
 .cta-btn {
@@ -587,6 +585,10 @@ main,
 }
 
 @media (max-width: 640px) {
+    #dark-mode-toggle + label {
+        right: 12px;
+    }
+
     .hero {
         min-height: 82vh;
         padding-top: 36px;
