@@ -1,0 +1,98 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "abneeeees",
+  description = "Programmer, Digital Artist, Linux User and open source contributor.",
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  url: "https://abneeeees.is-a.dev/",
+  name: "Avneesh Kumar",
+  alternateName: "abneeeees",
+  jobTitle: "Developer & Open Source Contributor",
+  sameAs: [
+    "https://github.com/abneeeees",
+    "https://t.me/abneeeees",
+    "https://www.instagram.com/abneeeees",
+    "https://twitter.com/abneeeees",
+    "https://www.reddit.com/user/abneeeees",
+    "https://www.linkedin.com/in/abneeeees/",
+  ],
+  knowsAbout: [
+    "Linux",
+    "FOSS",
+    "Computer Science",
+    "Software Development",
+    "Digital Art",
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content="abneeeees | Avneesh Kumar" />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="abneeeees" />
+
+    <!-- Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Apply the stored theme before first paint to avoid a flash -->
+    <script is:inline>
+      (function () {
+        try {
+          var theme = localStorage.getItem("theme");
+          if (theme === "light" || theme === "dark") {
+            document.documentElement.dataset.theme = theme;
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+
+  <body>
+    <canvas></canvas>
+    <slot />
+
+    <script>
+      import "../scripts/background.js";
+      import "../scripts/main.js";
+    </script>
+  </body>
+</html>

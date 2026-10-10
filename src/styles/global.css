@@ -288,6 +288,10 @@ main,
     color: var(--accent);
 }
 
+.about-grid a.link-plain {
+    text-decoration: none;
+}
+
 .about-text strong {
     color: var(--fg);
     font-weight: 700;
@@ -525,6 +529,11 @@ main,
 
 .footer-copy {
     text-align: left;
+}
+
+.footer-heart {
+    color: greenyellow;
+    font-size: larger;
 }
 
 .footer-upi {

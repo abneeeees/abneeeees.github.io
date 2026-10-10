@@ -5,11 +5,18 @@ const themeToggle = document.getElementById("dark-mode-toggle");
 const root = document.documentElement;
 const applyTheme = (theme) => {
   root.dataset.theme = theme;
+  try {
+    localStorage.setItem("theme", theme);
+  } catch (error) {
+    /* storage unavailable (private mode) — ignore */
+  }
   window.dispatchEvent(new CustomEvent("themechange", { detail: { theme } }));
 };
 
 if (themeToggle) {
-  applyTheme(themeToggle.checked ? "dark" : "light");
+  const initialTheme = root.dataset.theme === "light" ? "light" : "dark";
+  themeToggle.checked = initialTheme === "dark";
+  applyTheme(initialTheme);
 
   themeToggle.addEventListener("change", () => {
     applyTheme(themeToggle.checked ? "dark" : "light");

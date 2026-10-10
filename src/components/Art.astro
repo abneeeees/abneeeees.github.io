@@ -1,0 +1,38 @@
+---
+import { artworks } from "../data/artworks";
+---
+
+<section class="section" id="art">
+  <div class="section-inner">
+    <h2 class="section-title">kalakriti</h2>
+
+    <div class="art-carousel">
+      <button
+        class="art-nav art-nav-left is-hidden"
+        type="button"
+        aria-label="Scroll artwork left"
+      >
+        <i class="fa-solid fa-caret-left"></i>
+      </button>
+
+      <div class="art-row">
+        {
+          artworks.map((art) => (
+            <div class="art-card">
+              <img src={art.src} alt={art.title} loading="lazy" />
+              <p>{art.title}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <button
+        class="art-nav art-nav-right"
+        type="button"
+        aria-label="Scroll artwork right"
+      >
+        <i class="fa-solid fa-caret-right"></i>
+      </button>
+    </div>
+  </div>
+</section>

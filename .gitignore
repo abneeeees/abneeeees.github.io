@@ -1,7 +1,27 @@
-__pycache__/
+# build output
+dist/
+.output/
+
+# generated types
+.astro/
+
+# dependencies
 node_modules/
-.env
-.DS_Store
+
+# logs
 *.log
+npm-debug.log*
+
+# environment
+.env
+.env.production
+
+# os
+.DS_Store
+
+# editors
 .vscode
 .zed
+
+# python
+__pycache__/

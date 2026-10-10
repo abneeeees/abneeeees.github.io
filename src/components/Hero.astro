@@ -1,0 +1,28 @@
+---
+import SocialLinks from "./SocialLinks.astro";
+import { heroLinks } from "../data/socials";
+---
+
+<section class="hero" id="home">
+  <div class="hero-box">
+    <div class="hero-pfp">
+      <img src="/assets/yeezus.webp" alt="Profile Picture" />
+    </div>
+
+    <h1 class="hero-title">Namaste, I'm Avneesh aka abneeeees</h1>
+
+    <p class="hero-sub">
+      I'm a 3rd year computer science student and a digital artist from Dilli
+      India.<br />
+    </p>
+
+    <div class="hero-links">
+      <SocialLinks links={heroLinks} size="xl" />
+    </div>
+
+    <a href="#about" class="cta-btn"
+      ><br />
+      <i class="fa-solid fa-chevron-down"></i>
+    </a>
+  </div>
+</section>

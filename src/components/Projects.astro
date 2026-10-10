@@ -1,0 +1,30 @@
+---
+import { projects } from "../data/projects";
+---
+
+<section class="section" id="projects">
+  <div class="section-inner">
+    <h2 class="section-label">Projects</h2>
+
+    <div class="projects-group">
+      <div class="card-grid">
+        {
+          projects.map((project) => (
+            <a
+              href={project.url}
+              class="project-card"
+              target="_blank"
+              rel="noopener"
+            >
+              <h3 class="card-title">{project.title}</h3>
+              <p class="card-desc">{project.description}</p>
+              {project.tags.map((tag) => (
+                <span class="card-lang">{tag}</span>
+              ))}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

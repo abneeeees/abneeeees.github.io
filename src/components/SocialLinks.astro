@@ -1,0 +1,22 @@
+---
+import type { SocialLink } from "../data/socials";
+
+interface Props {
+  links: SocialLink[];
+  size?: "xl" | "2xl";
+}
+
+const { links, size = "xl" } = Astro.props;
+---
+
+{
+  links.map((link) => (
+    <a
+      href={link.href}
+      {...(link.external ? { target: "_blank", rel: "noopener" } : {})}
+      aria-label={link.label}
+    >
+      <i class={`${link.icon} fa-${size}`} />
+    </a>
+  ))
+}

@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /.git/
+Disallow: /cgi-bin/
+
+Sitemap: https://abneeeees.is-a.dev/sitemap-index.xml

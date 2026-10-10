@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Projects from "../components/Projects.astro";
+import Art from "../components/Art.astro";
+import Contact from "../components/Contact.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+---
+
+<BaseLayout>
+  <main>
+    <ThemeToggle />
+    <Hero />
+    <About />
+    <Projects />
+    <Art />
+    <Contact />
+  </main>
+
+  <SiteFooter />
+</BaseLayout>

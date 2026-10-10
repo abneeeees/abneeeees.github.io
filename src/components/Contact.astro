@@ -1,0 +1,18 @@
+---
+import SocialLinks from "./SocialLinks.astro";
+import { contactLinks } from "../data/socials";
+---
+
+<section class="section" id="contact">
+  <div class="section-inner">
+    <h2 class="section-title">Say Namaste</h2>
+
+    <p class="contact-intro">
+      I'm open to collabs, interesting projects and Commissions
+    </p>
+
+    <div class="contact-links">
+      <SocialLinks links={contactLinks} size="2xl" />
+    </div>
+  </div>
+</section>
