@@ -4,16 +4,19 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout title="404 | abneeeees" description="Page not found.">
   <main>
-    <section class="section" id="home">
-      <div class="section-inner" style="text-align:center;">
-        <h2 class="section-title">404</h2>
-        <p class="about-text" style="margin-bottom:24px;">
-          Ye page exist nahi karta. Let's get you back home.
+    <section class="section not-found">
+      <div class="section-inner not-found-inner">
+        <p class="not-found-code">404</p>
+        <h2 class="section-title">Page Not Found</h2>
+        <p class="not-found-text">
+          The page you're looking for doesn't exist or has been moved.
         </p>
-        <a href="/" class="cta-btn">
-          <i class="fa-solid fa-house"></i> back to home
-        </a>
+        <a href="/" class="not-found-btn">Get back to site</a>
       </div>
     </section>
   </main>
 </BaseLayout>
+
+<style>
+
+</style>
